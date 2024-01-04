@@ -19,3 +19,39 @@ img {
     width: 400px;
     height: 400px;
 }
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+    border-radius: 8px;
+    border: none;
+}
+
+.search-btn {
+    width: 50px;
+    height: 25px;
+    background-color: rgb(124, 124, 124);
+    color: rgb(206, 206, 206);
+    border-radius: 8px;
+    border: 1px solid rgb(206, 206, 206);
+}
+
+.generate {
+    width: 150px;
+    height: 35px;
+    background-color: rgb(124, 124, 124);
+    color: rgb(206, 206, 206);
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgb(206, 206, 206);
+}

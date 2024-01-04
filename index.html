@@ -12,22 +12,12 @@
     <img src="#" alt="">
     <div class="search-form">
         <label for="search">Search:</label>
-        <input type="search">
-        <button class="search-btn"></button>
+        <input type="search" id="search">
+        <button class="search-btn">Go</button>
     </div>
     <button class="generate">Generate new gif</button>
     <script>
-        const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=uOZK1qCwclYs7tg1XVHdKDUWLtDHif4w&s=puppy', {mode: 'cors'})
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(response) {
-            img.src = response.data.images.original.url;
-        });
-
-        const generateBtn = document.querySelector('.generate');
-        generateBtn.addEventListener('click', () => {
+        function generateGif() {
             const img = document.querySelector('img');
             fetch('https://api.giphy.com/v1/gifs/translate?api_key=uOZK1qCwclYs7tg1XVHdKDUWLtDHif4w&s=puppy', {mode: 'cors'})
             .then(function(response) {
@@ -36,6 +26,27 @@
             .then(function(response) {
                 img.src = response.data.images.original.url;
             });
+        }
+        generateGif();
+
+        const input = document.querySelector('input');
+        const searchBtn = document.querySelector('.search-btn');
+        searchBtn.addEventListener('click', () => {
+            const userInput = input.value;
+
+            const img = document.querySelector('img');
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=uOZK1qCwclYs7tg1XVHdKDUWLtDHif4w&s=${userInput}`, {mode: 'cors'})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            });
+        })
+
+        const generateBtn = document.querySelector('.generate');
+        generateBtn.addEventListener('click', () => {
+            generateGif();
         })
     </script>
 </body>
