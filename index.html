@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=img, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gif Runner!</title>
+
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <img src="" alt="">
-    <script></script>
+    <h1>Gif Runner!</h1>
+    <img src="#" alt="">
+    <div class="search-form">
+        <label for="search">Search:</label>
+        <input type="search">
+        <button class="search-btn"></button>
+    </div>
+    <button class="generate">Generate new gif</button>
+    <script>
+        const img = document.querySelector('img');
+        fetch('https://api.giphy.com/v1/gifs/translate?api_key=uOZK1qCwclYs7tg1XVHdKDUWLtDHif4w&s=puppy', {mode: 'cors'})
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(response) {
+            img.src = response.data.images.original.url;
+        });
+
+        const generateBtn = document.querySelector('.generate');
+        generateBtn.addEventListener('click', () => {
+            const img = document.querySelector('img');
+            fetch('https://api.giphy.com/v1/gifs/translate?api_key=uOZK1qCwclYs7tg1XVHdKDUWLtDHif4w&s=puppy', {mode: 'cors'})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            });
+        })
+    </script>
 </body>
 </html>

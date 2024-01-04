@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: rgb(37, 37, 37);
+    color:rgb(206, 206, 206)
+}
+
+h1 {
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
